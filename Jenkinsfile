@@ -6,17 +6,22 @@ pipeline{
                 echo 'succesfull build with webhook and ngroK;)'
             }
         }
-        stage('Building & Testing maven'){
+        stage('MVN Build'){
             steps{
                sh 'mvn clean install'
                sh 'mvn -version'
-               sh 'mvn test'
+
             }
         }
         stage('MVN Sonarqube'){
             steps{
                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=x -Dmaven.test.skip=true'
             }
+        }
+        stage('MVN Test'){
+              steps{
+                sh 'mvn test'
+              }
         }
     }
 }
