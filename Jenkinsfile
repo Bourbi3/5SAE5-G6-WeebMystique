@@ -6,7 +6,7 @@ pipeline{
         //    sh 'mvn clean install'
       //      sh 'mvn -version'
          //   sh 'mvn test'
-         echo 'fgf'
+         echo 'succesfull build with webhook'
             }
         }
     }
