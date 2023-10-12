@@ -12,7 +12,11 @@ pipeline{
                sh 'mvn -version'
                sh 'mvn test'
             }
-
+        }
+        stage('MVN Sonarqube'){
+            steps{
+               sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=x Dmaven.skip=true'
+            }
         }
     }
 }
