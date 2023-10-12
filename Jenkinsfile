@@ -5,6 +5,7 @@ pipeline{
             steps{
                 echo 'succesfull build with webhook and ngroK;)'
             }
+        }
         stage('Building & Testing maven'){
             steps{
                sh 'mvn clean install'
