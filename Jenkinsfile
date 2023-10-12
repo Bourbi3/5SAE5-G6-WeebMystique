@@ -1,10 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage('Building & Testing maven'){
+        stage('webhook'){
             steps{
-                echo 'succesfull build with webhook  and ngroK;)'
+                echo 'succesfull build with webhook and ngroK;)'
             }
+        stage('Building & Testing maven'){
             steps{
                sh 'mvn clean install'
                sh 'mvn -version'
