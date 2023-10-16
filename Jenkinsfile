@@ -1,32 +1,17 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Show'){
-            steps{
-                script {
-                    def currentDate = sh(script: 'date', returnStdout: true).trim()
-                    echo "Current Date: ${currentDate}"
-                }
+
+    stages {
+        stage('Check NVM Version') {
+            steps {
+                sh(script: 'nvm --version')
             }
         }
-        stage('Check NVM'){
-            steps{
-                echo 'showing Mvn version ...'
-            }
-            steps{
-               sh 'mvn -version'
-            }
 
-        }
-        stage('clean Building With NVM'){
-            steps{
-                echo 'clean buildin with MVN'
+        stage('Maven Clean Install') {
+            steps {
+                sh(script: 'mvn clean install')
             }
-            steps{
-               sh 'mvn -version'
-               sh 'mvn clean install'
-            }
-
         }
     }
 }
