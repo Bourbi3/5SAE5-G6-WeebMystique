@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Check NVM Version') {
+        stage('Check maven Version') {
             steps {
-                sh(script: 'nvm --version')
+                sh(script: 'mvn --version')
             }
         }
 
