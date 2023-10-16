@@ -3,7 +3,10 @@ pipeline{
     stages{
         stage('Show'){
             steps{
-                echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
+                script {
+                    def currentDate = sh(script: 'date', returnStdout: true).trim()
+                    echo "Current Date: ${currentDate}"
+                }
             }
         }
        
