@@ -9,6 +9,24 @@ pipeline{
                 }
             }
         }
-       
+        stage('Check NVM'){
+            steps{
+                echo 'showing Mvn version ...'
+            }
+            steps{
+               sh 'mvn -version'
+            }
+
+        }
+       stage('clean Building With NVM'){
+            steps{
+                echo 'clean buildin with MVN'
+            }
+            steps{
+               sh 'mvn -version'
+               sh 'mvn clean install'
+            }
+
+        }
     }
 }
