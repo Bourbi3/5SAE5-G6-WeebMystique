@@ -18,7 +18,7 @@ pipeline{
             }
 
         }
-       stage('clean Building With NVM'){
+        stage('clean Building With NVM'){
             steps{
                 echo 'clean buildin with MVN'
             }
