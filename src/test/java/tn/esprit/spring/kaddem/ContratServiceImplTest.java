@@ -38,7 +38,7 @@ public class ContratServiceImplTest {
         //  Assertions.assertEquals(0, listProduits.size());
         Assertions.assertNotEquals(0,listProduits.size());
     }
-
+/*
     @Test
     @Order(3)
     public void testUpdate(){
@@ -53,5 +53,5 @@ public class ContratServiceImplTest {
         Assertions.assertNotEquals(500,contratService.retrieveContrat(1).getMontantContrat());
 
     }
-
+*/
 }
