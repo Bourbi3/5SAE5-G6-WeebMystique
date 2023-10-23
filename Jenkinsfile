@@ -34,7 +34,7 @@ pipeline{
                       ]],
                    credentialsId: 'nexus',
                   groupId: 'tn.esprit.spring',
-                  nexusUrl: 'http://192.168.220.129:8081/',
+                  nexusUrl: 'http://192.168.220.129:8081',
                   nexusVersion: 'nexus3',
                   protocol: 'http',
                   repository: 'nexus-project',
