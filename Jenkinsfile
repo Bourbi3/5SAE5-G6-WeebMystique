@@ -13,6 +13,18 @@ pipeline{
 
             }
         }
+        stage('OWASP Scan') {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --format XML', odcInstallation: 'DP'
+                // Optionally, you can add a step to list the generated reports for debugging
+                sh 'ls -R'
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: '**/dependency-check-report.xml', allowEmptyArchive: true
+                }
+            }
+        }
         stage('MVN Sonarqube'){
             steps{
                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=x -Dmaven.test.skip=true'
