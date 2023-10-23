@@ -23,10 +23,24 @@ pipeline{
                 sh 'mvn test'
               }
         }
-        stage('MVN Nexus'){
-                      steps{
-                        sh 'mvn deploy'
-                      }
+       stage ('upload Artifact to Nexus') {
+                steps{
+                   nexusArtifactUploader artifacts: [
+                     [
+                   artifactId: 'Kaddem',
+                   classifier: '',
+                   file: 'target/Devops-integration.jar',
+                   type: 'jar'
+                      ]],
+                   credentialsId: 'nexus',
+                  groupId: 'tn.esprit.spring',
+                  nexusUrl: 'http://192.168.220.129:8081/',
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  repository: 'nexus-project',
+                  version: "version '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
                 }
+
+           }
     }
 }
