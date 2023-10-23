@@ -21,6 +21,7 @@ pipeline{
         stage('MVN Test'){
               steps{
                 sh 'mvn test'
+                junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults : true)
               }
         }
        stage ('upload Artifact to Nexus') {
