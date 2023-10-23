@@ -24,6 +24,19 @@ pipeline{
                 junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults : true)
               }
         }
+        stage('Collect JaCoCo Coverage') {
+               steps{
+                 jacoco(execPattern: '**/target/jacoco.exec')
+            }
+        }
+
+            stage('Test with JaCoCo') {
+                steps{
+
+                        // Run your tests with JaCoCo enabled and generate JaCoCo XML reports
+                        sh 'mvn clean test jacoco:report'
+                }
+            }
        stage ('upload Artifact to Nexus') {
                 steps{
                    nexusArtifactUploader artifacts: [
