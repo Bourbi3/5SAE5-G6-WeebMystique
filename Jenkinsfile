@@ -12,6 +12,7 @@ pipeline{
                sh 'mvn -version'
 
             }
+        }
 
         stage('MVN Sonarqube'){
             steps{
@@ -30,6 +31,13 @@ pipeline{
             }
         }
 
+            stage('Test with JaCoCo') {
+                steps{
+
+                        // Run your tests with JaCoCo enabled and generate JaCoCo XML reports
+                        sh 'mvn clean test jacoco:report'
+                }
+            }
        stage ('upload Artifact to Nexus') {
                 steps{
                    nexusArtifactUploader artifacts: [
@@ -47,6 +55,7 @@ pipeline{
                   repository: 'nexus-project',
                   version: "version '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
                 }
-       }
+
+           }
     }
 }
