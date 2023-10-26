@@ -47,7 +47,6 @@ pipeline{
                   repository: 'nexus-project',
                   version: "version '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
                 }
-
-           }
+       }
     }
 }
