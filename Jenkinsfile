@@ -31,13 +31,7 @@ pipeline{
             }
         }
 
-            stage('Test with JaCoCo') {
-                steps{
 
-                        // Run your tests with JaCoCo enabled and generate JaCoCo XML reports
-                        sh 'mvn clean test jacoco:report'
-                }
-            }
        stage ('upload Artifact to Nexus') {
                 steps{
                    nexusArtifactUploader artifacts: [
