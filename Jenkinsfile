@@ -13,14 +13,10 @@ pipeline {
                 sh(script: 'mvn clean install')
             }
         }
-
-
-
          stage('MVN Sonarqube'){
-                    steps{
-                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=x -Dmaven.test.skip=true'
-                    }
-                }
-
+            steps{
+               sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=x -Dmaven.test.skip=true'
+            }
+        }
     }
 }
