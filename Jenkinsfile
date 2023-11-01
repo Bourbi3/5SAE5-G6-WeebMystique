@@ -2,18 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Check maven Version') {
-            steps {
-                sh(script: 'mvn --version')
-            }
-        }
 
-        stage('Maven Clean Install') {
+
+        stage('COMPILING') {
             steps {
                 sh(script: 'mvn clean install')
             }
         }
-         stage('MVN Sonarqube'){
+         stage('SONARQUBE'){
             steps{
                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin1 -Dmaven.test.skip=true'
             }
