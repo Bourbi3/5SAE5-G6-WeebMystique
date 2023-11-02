@@ -51,5 +51,19 @@ pipeline{
                 }
 
            }
+       stage('Build Docker Image') {
+                steps {
+                    script {
+                          sh 'docker build -t RabieBenCheikh-5SAE5-G6-Projet2 .'
+                       }
+                   }
+               }
+       stage('Push Docker Image') {
+                   steps {
+                       script {
+                            sh 'docker push oRabieBenCheikh-5SAE5-G6-Projet2'
+                           }
+                       }
+                   }
     }
 }
