@@ -54,14 +54,14 @@ pipeline{
        stage('Build Docker Image') {
                 steps {
                     script {
-                          sh 'docker build -t RabieBenCheikh-5SAE5-G6-Projet2 .'
+                          sh 'docker build -t rabiebencheikh-5sae5-g6-projet2 .'
                        }
                    }
                }
        stage('Push Docker Image') {
                    steps {
                        script {
-                            sh 'docker push oRabieBenCheikh-5SAE5-G6-Projet2'
+                            sh 'docker push rabiebencheikh-5sae5-g6-projet2'
                            }
                        }
                    }
