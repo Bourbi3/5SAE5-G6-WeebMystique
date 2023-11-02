@@ -58,12 +58,16 @@ pipeline{
                        }
                    }
                }
-       stage('Push Docker Image') {
-                   steps {
-                       script {
-                            sh 'docker push rabiebencheikh-5sae5-g6-projet2'
-                           }
+
+      stage('push Docker Image') {
+                  steps {
+                      script {
+                       withCredentials([string(credentialsId: 'galata', variable: 'galata')]) {
+                          sh 'docker login -u bourbi3 -p ${galata}'
                        }
-                   }
+                       sh 'docker push rabiebencheikh-5sae5-g6-projet2'
+                      }
+                  }
+              }
     }
 }
