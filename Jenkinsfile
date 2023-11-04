@@ -54,7 +54,7 @@ pipeline{
        stage('Build Docker Image') {
                 steps {
                     script {
-                          sh 'docker build -t rabiebencheikh-5sae5-g6-projet2 .'
+                          sh 'docker build -t bourbi3/rabiebencheikh-5sae5-g6-projet2 .'
                        }
                    }
                }
