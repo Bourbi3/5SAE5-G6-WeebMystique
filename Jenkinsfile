@@ -63,8 +63,8 @@ pipeline{
       stage('push Docker Image') {
                   steps {
                       script {
-                       withCredentials([string(credentialsId: 'galata', variable: 'galata')]) {
-                          sh "docker login -u bourbi3 -p ${galata}"
+                       withCredentials([string(credentialsId: 'bourbi3', variable: 'dockerhubpwd')]) {
+                          sh "docker login -u bourbi3 -p ${dockerhubpwd}"
                        }
                        sh 'docker push bourbi3/rabiebencheikh-5sae5-g6-projet2'
                       }
