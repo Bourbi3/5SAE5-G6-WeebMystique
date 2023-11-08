@@ -3,10 +3,14 @@ pipeline {
 
     stages {
 
-
+        stage('CLEANING') {
+            steps {
+                sh(script: 'mvn clean')
+            }
+        }
         stage('COMPILING') {
             steps {
-                sh(script: 'mvn clean install')
+                sh(script: 'mvn install -DskipTests')
             }
         }
          stage('JUINIT/MOCKITO') {
