@@ -29,6 +29,8 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	EquipeRepository equipeRepository;
     @Autowired
     DepartementRepository departementRepository;
+
+
 	public List<Etudiant> retrieveAllEtudiants(){
 	return (List<Etudiant>) etudiantRepository.findAll();
 	}
