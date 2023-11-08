@@ -26,6 +26,24 @@ pipeline {
               }
         }
 
+        stage('Docker build image') {
+            steps {
+                script {
+                    sh 'docker build -f Dockerfile -t khoulouddandani/kaddam:1-0 .'
+                }
+            }
+        }
+
+        stage('Docker push image') {
+            steps {
+                script {
+                    sh "docker login -u khoulouddandani -p khouloud123"
+                    sh "docker push khoulouddandani/kaddam:1-0"
+                    sh "docker logout "
+                }
+            }
+        }
+
 
     }
 }
