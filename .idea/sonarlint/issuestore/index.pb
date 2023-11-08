@@ -65,3 +65,12 @@ x
 Hsrc/main/java/tn/esprit/spring/kaddem/repositories/EquipeRepository.java,f\8\f888df89e3d665fb13a022e447b093a50c775e60
 u
 Esrc/test/java/tn/esprit/spring/kaddem/DepartementServiceImplTest.java,f\5\f5f3aeb35c69d66c1ce4c709d8534613a934f0fd
+8
+mvnw.cmd,1\f\1f1763f358c257ea3515417352b82b0165647ad1
+4
+mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
+:
+
+kaddem.iml,f\a\fadfa917dfce73921c82c554eb63a32a28afe834
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

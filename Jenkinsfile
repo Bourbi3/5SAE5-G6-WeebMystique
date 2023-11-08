@@ -9,16 +9,23 @@ pipeline {
                 sh(script: 'mvn clean install')
             }
         }
+         stage('JUINIT/MOCKITO') {
+            steps {
+                sh(script: 'mvn test')
+                junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults : true)
+            }
+        }
          stage('SONARQUBE'){
             steps{
                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin1 -Dmaven.test.skip=true'
             }
         }
-         stage('JUNIT/MOCKITO'){
+         stage('NEXUS Deploiement'){
               steps{
-                 sh 'mvn test'
-                 junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults : true)
+                 sh 'mvn deploy -DskipTests'
               }
         }
+
+
     }
 }
