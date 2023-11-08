@@ -77,5 +77,15 @@ pipeline{
                    }
           }
       }
+      stage('Email') {
+                  steps {
+                      script {
+                          emailext subject: 'Build Status',
+                                   body: 'The build and deployment are completed.',
+                                   to: 'rabiebencheikh@gmail.com',
+                                   attachLog: true
+                      }
+                  }
+              }
     }
 }
