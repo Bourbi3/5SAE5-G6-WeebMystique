@@ -29,7 +29,7 @@ pipeline {
         stage('Docker build image') {
             steps {
                 script {
-                    sh 'docker build -t khoulouddandani/kaddam:1-0 .'
+                    sh 'docker build -t khoulouddandani/sae5-projet-2:1-0 .'
                 }
             }
         }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     sh "docker login -u khoulouddandani -p khouloud123"
-                    sh "docker push khoulouddandani/kaddam:1-0"
+                    sh "docker push khoulouddandani/sae5-projet-2:1-0"
                     sh "docker logout "
                 }
             }
