@@ -29,7 +29,7 @@ pipeline {
         stage('Docker build image') {
             steps {
                 script {
-                    sh 'docker build -f Dockerfile -t khoulouddandani/kaddam:1-0 .'
+                    sh 'docker build -t khoulouddandani/kaddam:1-0 .'
                 }
             }
         }
@@ -40,6 +40,14 @@ pipeline {
                     sh "docker login -u khoulouddandani -p khouloud123"
                     sh "docker push khoulouddandani/kaddam:1-0"
                     sh "docker logout "
+                }
+            }
+        }
+
+        stage('Start Docker Containers') {
+            steps {
+                script {
+                    sh "docker-compose up -d"
                 }
             }
         }
