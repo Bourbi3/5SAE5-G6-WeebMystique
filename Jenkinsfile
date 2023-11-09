@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('webhook'){
             steps{
-                echo 'succesfull build with webhook and ngroK;'
+                echo 'succesfull build with webhook and ngroK;)'
             }
         }
         stage('MVN Build'){
